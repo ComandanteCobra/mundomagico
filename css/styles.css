@@ -889,19 +889,19 @@ body {
 }
 
 .cliente1 {
-    background-image: url("/img/cliente1.jpeg");
+    background-image: url("img/cliente1.jpeg");
 }
 
 .cliente2 {
-    background-image: url("/img/cliente2.jpeg");
+    background-image: url("img/cliente2.jpeg");
 }
 
 .cliente3 {
-    background-image: url("/img/cliente3.jpeg");
+    background-image: url("img/cliente3.jpeg");
 }
 
 .cliente4 {
-    background-image: url("/img/cliente4.jpeg");
+    background-image: url("img/cliente4.jpeg");
 }
 
 
