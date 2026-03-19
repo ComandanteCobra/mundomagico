@@ -748,6 +748,13 @@ body {
     transition: all 0.3s ease;
 }
 
+/*  OCULTAR FLECHAS EN CELULAR */
+@media (max-width: 768px) {
+    .arrow {
+        display: none;
+    }
+}
+
 /* Hover elegante */
 .arrow:hover {
     background: #2e7d32;
