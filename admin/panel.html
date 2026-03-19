@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<title>Panel Admin</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f4f4;
+padding:40px;
+}
+
+.container{
+max-width:700px;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:10px;
+}
+
+input{
+width:100%;
+padding:10px;
+margin:10px 0;
+}
+
+button{
+padding:10px 15px;
+background:#2e7d32;
+color:white;
+border:none;
+cursor:pointer;
+margin-top:5px;
+}
+
+.personaje{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-top:10px;
+padding:10px;
+border-bottom:1px solid #ddd;
+}
+
+.logout{
+background:#c62828;
+float:right;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<script>
+/* PROTECCIÓN LOGIN */
+
+if(localStorage.getItem("admin") !== "true"){
+window.location.href="index.html";
+}
+</script>
+
+<div class="container">
+
+<h2>Panel administrador</h2>
+
+<button class="logout" onclick="logout()">Cerrar sesión</button>
+
+<h3>Agregar personaje</h3>
+
+<input type="text" id="nombre" placeholder="Nombre del personaje">
+
+<input type="file" id="imagen">
+
+<button onclick="subirPersonaje()">Guardar</button>
+
+<h3>Personajes actuales</h3>
+
+<div id="lista"></div>
+
+</div>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+getFirestore,
+collection,
+addDoc,
+getDocs,
+deleteDoc,
+doc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+import {
+getStorage,
+ref,
+uploadBytes,
+getDownloadURL
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
+
+
+/* CONFIG FIREBASE */
+
+const firebaseConfig = {
+    apiKey: "AIzaSyC6ucn_SfxpHwifFtawdGCQvaap1YlnK-g",
+    authDomain: "cobraweb-9f803.firebaseapp.com",
+    projectId: "cobraweb-9f803",
+    storageBucket: "cobraweb-9f803.firebasestorage.app",
+    messagingSenderId: "1069149879530",
+    appId: "1:1069149879530:web:b3c90b04175fbab0492b93"
+  };
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+
+const storage = getStorage(app);
+
+
+/* AGREGAR PERSONAJE */
+
+window.subirPersonaje = async function(){
+
+const nombre = document.getElementById("nombre").value;
+
+const imagenFile = document.getElementById("imagen").files[0];
+
+if(!nombre || !imagenFile){
+
+alert("Completa todos los campos");
+
+return;
+
+}
+
+const storageRef = ref(storage,"personajes/"+imagenFile.name);
+
+await uploadBytes(storageRef,imagenFile);
+
+const url = await getDownloadURL(storageRef);
+
+await addDoc(collection(db,"personajes"),{
+
+nombre:nombre,
+imagen:url
+
+});
+
+alert("Personaje agregado");
+
+location.reload();
+
+}
+
+
+/* CARGAR PERSONAJES */
+
+async function cargar(){
+
+const lista = document.getElementById("lista");
+
+const querySnapshot = await getDocs(collection(db,"personajes"));
+
+querySnapshot.forEach((docu)=>{
+
+const data = docu.data();
+
+lista.innerHTML += `
+<div class="personaje">
+${data.nombre}
+<button onclick="eliminar('${docu.id}')">Eliminar</button>
+</div>
+`;
+
+});
+
+}
+
+cargar();
+
+
+/* ELIMINAR */
+
+window.eliminar = async function(id){
+
+await deleteDoc(doc(db,"personajes",id));
+
+location.reload();
+
+}
+
+
+/* LOGOUT */
+
+window.logout = function(){
+
+localStorage.removeItem("admin");
+
+window.location.href="index.html";
+
+}
+
+</script>
+
+</body>
+</html>
