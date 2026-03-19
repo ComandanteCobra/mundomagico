@@ -1,0 +1,908 @@
+/* RESET BASICO */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f5f5;
+}
+
+/* CONTENEDOR CENTRAL */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* NAVBAR */
+.navbar {
+    background: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+    padding: 18px 0; /* más aire */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* CONTENEDOR */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* LOGO */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo img {
+    height: 90px; /* un poco menos para equilibrio */
+}
+
+.logo span {
+    font-size: 26px;
+    font-weight: 700;
+    color: #1f6f5f; /* verde esmeralda */
+    letter-spacing: 0.5px;
+}
+
+/* LINKS */
+.nav-links {
+    list-style: none;
+    display: none;
+    gap: 40px;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 19px;
+    font-weight: 600;
+    color: #1f6f5f;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* HOVER */
+.nav-links a:hover {
+    color: #ffb703; /* dorado cálido */
+}
+
+/* Línea animada */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 3px;
+    left: 0;
+    bottom: -8px;
+    background: #ffb703;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* MENÚ MOBILE */
+.menu-toggle {
+    font-size: 26px;
+    cursor: pointer;
+    color: #1f6f5f;
+    transition: 0.3s ease;
+}
+
+.menu-toggle:hover {
+    color: #ffb703;
+}
+
+/* HERO */
+.hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* cambiado */
+    text-align: left; /* cambiado */
+    padding: 120px 20px;
+    color: white;
+
+    background: url("../img/fondo.jpg") center center / cover no-repeat;
+}
+
+/* Overlay oscuro suave para mejor contraste */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        rgba(15, 40, 30, 0.55),
+        rgba(15, 40, 30, 0.55)
+    );
+}
+
+/* Aseguramos que el contenido quede encima */
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h2 {
+    font-weight: 400;   /* quitar negritas */
+    font-size: 22px;
+    margin-bottom: 35px;
+    /*color: #4b5563;*/
+    color: white;
+    max-width: 600px;
+}
+
+/* TÍTULO PRINCIPAL */
+.hero ul {
+    list-style: none;
+    padding: 0;
+}
+
+.hero ul li {
+    margin: 8px 0;
+    font-size: 18px;
+    /*color: #374151;*/
+    color: white;
+}
+
+/* BOTÓN WHATSAPP */
+.btn-whatsapp {
+    display: inline-block;
+    padding: 16px 32px;       /* más grande */
+    background-color: #2e7d32; /* verde marca elegante */
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;       /* botón más moderno */
+    font-weight: 600;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(46,125,50,0.25);
+    margin-bottom: 30px;
+}
+
+/* Hover elegante */
+.btn-whatsapp:hover {
+    background-color: #1b5e20;
+    transform: translateY(-3px);
+}
+
+/* BENEFICIOS */
+.beneficios {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+    color: #374151;
+}
+
+.beneficios li {
+    margin-bottom: 10px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .hero {
+        padding: 70px 20px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero h2 {
+        font-size: 18px;
+    }
+
+    .btn-whatsapp {
+        font-size: 16px;
+        padding: 14px 26px;
+    }
+}
+/* BENEFICIOS */
+.beneficios {
+    list-style: none;
+    padding: 0;
+}
+
+.beneficios li {
+    margin-bottom: 8px;
+}
+
+/* SECCIONES */
+.section {
+    padding: 10px 0;
+
+}
+
+.section h2 {
+    color: #1b5e20;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+}
+
+.section h2::after {
+   content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #2e7d32;
+    margin-top: 8px;
+    border-radius: 10px;
+}
+
+/* FOOTER */
+.footer {
+    background-color: #3a3a3a; /* gris fuerte */
+    color: white;
+    padding: 30px 0;
+}
+
+.footer h3 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.footer-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.footer-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    transition: 0.3s ease;
+}
+
+.footer-item i {
+    font-size: 18px;
+    color: white; /* iconos blancos */
+}
+
+.footer-item:hover {
+    opacity: 0.7;
+}
+
+
+
+
+/* RESPONSIVE */
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+        padding: 25px 0;
+        display: none;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* En escritorio */
+@media (min-width: 769px) {
+    .nav-links {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+}
+
+/* SECCION CONTRATAR */
+.contratar {
+    padding: 40px 0; /* mismo ritmo vertical que las demás */
+    text-align: center;
+}
+
+/* Título igual que galería */
+.contratar h2 {
+    color: #1b5e20;
+    margin-bottom: 15px;
+}
+
+/* Línea decorativa */
+.contratar h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #2e7d32;
+    margin: 8px auto 0;
+    border-radius: 10px;
+}
+
+/* Contenedor de pasos */
+.pasos {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 40px;
+    align-items: center;
+}
+
+/* Cada paso */
+.paso {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    max-width: 600px;
+}
+
+/* Número */
+.numero {
+    width: 50px;
+    height: 50px;
+    background-color: #2e7d32;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    box-shadow: 0 5px 15px rgba(46,125,50,0.25);
+}
+
+/* En pantallas grandes */
+@media (min-width: 768px) {
+    .pasos {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+/* SECCION QUIENES SOMOS */
+.informacion {
+    padding: 10px 0; /* mismo ritmo vertical que galería y contratar */
+}
+
+/* Título consistente */
+.informacion h2 {
+    color: #1b5e20;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+/* Línea decorativa igual que otras secciones */
+.informacion h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #2e7d32;
+    margin-top: 8px;
+    border-radius: 10px;
+}
+
+/* GRID */
+.info-grid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 40px auto 0; /* separación elegante del título */
+}
+
+/* TEXTO */
+.info-texto {
+    flex: 1;
+    min-width: 300px;
+    max-width: 550px;
+}
+
+.info-texto p {
+    text-align: justify;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    color: #374151; /* gris elegante como otras secciones */
+}
+
+/* IMAGEN */
+.info-imagen {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.info-imagen img {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+/*logo*/
+.logo img {
+    height: 80px;
+}
+
+/* SECCIÓN PERSONAJES */
+#personajes {
+    background: #f8fafc; /* fondo más limpio */
+}
+
+/* GRID */
+.personajes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin: 50px 0;
+}
+
+/* TARJETA */
+.personaje-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background: #ffffff;
+    padding: 18px;
+    border-radius: 18px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    border: 1px solid #f1f5f9;
+
+    text-align: center;
+
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* HOVER PRO */
+.personaje-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+/* IMAGEN */
+.personaje-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: top;
+
+    border-radius: 12px;
+    margin-bottom: 10px;
+
+    cursor: pointer;
+    transition: transform 0.4s ease;
+}
+
+/* ZOOM SUAVE */
+.personaje-card:hover img {
+    transform: scale(1.05);
+}
+
+/* NOMBRE */
+.personaje-card h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 8px 0;
+}
+
+/* BOTÓN PRO */
+.btn-personaje {
+    margin-top: auto;
+    padding: 12px;
+
+    background: linear-gradient(135deg, #2e7d32, #4caf50);
+    color: white;
+
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+/* HOVER BOTÓN */
+.btn-personaje:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 10px 20px rgba(46,125,50,0.3);
+}
+
+/* BADGE (opcional pero pro) */
+.badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+
+    background: #2e7d32;
+    color: white;
+    font-size: 12px;
+
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .personajes-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/*testimonios*/
+.testimonios {
+    background: #f5f5f5;
+    text-align: center;
+}
+
+.testimonios-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.testimonio-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 350px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.cliente-img {
+    width: 60px;
+    height: 60px;
+    background: #3c7c2e;
+    border-radius: 50%;
+    margin: 0 auto 15px auto;
+}
+
+.mensaje {
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.estrellas {
+    color: #f4c542;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.testimonio-card h4 {
+    font-weight: normal;
+    color: #555;
+}
+
+/* REDES SOCIALES */
+#redes {
+    background: #f4f6f8;
+    padding: 20px 0; /* mismo ritmo vertical */
+    text-align: center;
+}
+
+/* TÍTULO CENTRADO Y CON IDENTIDAD */
+#redes h2 {
+    color: #1b5e20;  /* verde marca */
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block; /* clave para centrar con línea */
+}
+
+/* Línea decorativa centrada */
+#redes h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #2e7d32;
+    margin: 8px auto 0; /* 👈 esto lo centra */
+    border-radius: 10px;
+}
+
+.redes h2 {
+    margin-bottom: 50px;
+    font-size: 28px;
+    color: #222;
+}
+
+.redes-grid {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.red-box {
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: 0.3s ease;
+}
+
+.red-box:hover {
+    transform: translateY(-5px);
+}
+
+.red-box h3 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.red-texto {
+    margin-bottom: 20px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Video */
+.tiktok-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.tiktok-embed {
+    width: 100% !important;
+    max-width: 400px !important;
+}
+ /*Ig*/
+ .instagram-container {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.instagram-media {
+    max-width: 380px !important;
+    width: 100% !important;
+    border-radius: 15px !important;
+}
+
+/* GALERIA CARRUSEL */
+.carousel-container {
+    position: relative;
+    margin-top: 40px;
+}
+
+.carousel {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Firefox */
+}
+
+.carousel::-webkit-scrollbar {
+    display: none; /* Chrome */
+}
+
+.carousel img,
+.carousel video {
+    min-width: 280px;
+    max-width: 320px;
+    height: 400px;        /* 👈 altura fija igual para todos */
+    object-fit: cover;    /* 👈 recorta sin deformar */
+    border-radius: 20px;
+    flex-shrink: 0;
+}
+
+/* FLECHAS */
+/* FLECHAS MINIMALISTAS */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    width: 48px;
+    height: 48px;
+    
+    background: white;
+    color: #2e7d32; /* verde elegante */
+    
+    border: none;
+    border-radius: 50%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    font-size: 20px;
+    cursor: pointer;
+    
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    transition: all 0.3s ease;
+}
+
+/* Hover elegante */
+.arrow:hover {
+    background: #2e7d32;
+    color: white;
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Posición */
+.arrow.left {
+    left: -25px;
+}
+
+.arrow.right {
+    right: -25px;
+}
+
+/* BOTÓN FLOTANTE WHATSAPP */
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    
+    width: 65px;
+    height: 65px;
+    
+    background-color: #25D366;
+    border-radius: 50%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    
+    z-index: 999;
+    
+    animation: bounce 2s infinite; /* 👈 movimiento */
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float img {
+    width: 35px;
+    height: 35px;
+}
+
+/*  hover más pro */
+.whatsapp-float:hover {
+    transform: scale(1.2);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.35);
+}
+
+/*  efecto rebote */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/*  reseñas */
+
+.ver-resenas {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.ver-resenas a {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #2e7d32;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.ver-resenas a:hover {
+    background-color: #1b5e20;
+    transform: translateY(-2px);
+}
+
+/*  modal  */
+.modal {
+    display: none; /* 👈 oculto al inicio */
+    position: fixed;
+    z-index: 9999; /* 👈 súper importante */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    
+    background-color: rgba(0, 0, 0, 0.9); /* fondo oscuro */
+    
+    justify-content: center;
+    align-items: center;
+}
+
+/*  esto centra la imagen */
+.modal.activo {
+    display: flex;
+}
+
+.modal img {
+    max-width: 90%;
+    max-height: 85%;
+    border-radius: 15px;
+}
+
+/*  botón cerrar */
+.cerrar {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+/*  imagen cliente */
+.cliente-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    margin: 0 auto 15px;
+    border: 3px solid #2e7d32;
+}
+
+.cliente-img {
+    transition: 0.3s ease;
+}
+
+.cliente-img:hover {
+    transform: scale(1.1);
+}
+
+.cliente1 {
+    background-image: url("/img/cliente1.jpeg");
+}
+
+.cliente2 {
+    background-image: url("/img/cliente2.jpeg");
+}
+
+.cliente3 {
+    background-image: url("/img/cliente3.jpeg");
+}
+
+.cliente4 {
+    background-image: url("/img/cliente4.jpeg");
+}
+
+
+
