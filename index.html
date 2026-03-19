@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo Mágico Cobra | Entrega de regalos con botarga</title>
+    <meta name="description" content="Renta y entrega de regalos con botarga para fiestas y eventos especiales. Servicio profesional y puntual.">
+    <link rel="icon" type="image/jpg" sizes="32x32" href="img/logo1.jpg">
+    <link rel="icon" type="image/jpg" sizes="16x16" href="img/logo1.jpg">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+<header class="navbar">
+    <div class="container nav-container">
+        <div class="logo">
+            <img src="img/logo1.jpg" alt="Logo Mundo Mágico Cobra">
+            <span>Mundo Mágico Cobra</span>
+        </div>
+
+        <div class="menu-toggle">☰</div>
+
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#personajes">Personajes</a></li>
+            <li><a href="#galeria">Galería</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </div>
+    
+</header>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+    <div class="container">
+        <h1>Sorprende con botargas que hacen tu evento inolvidable </h1>
+        <h2>Entregas sorpresa con botarga que llenan de alegría tu evento</h2>
+
+        <a href="https://wa.me/525951080493" class="btn-whatsapp" target="_blank">
+            Cotiza ahora por WhatsApp
+        </a>
+
+        <ul class="beneficios">
+            <li>✔ Más de 150 eventos realizados</li>
+            <li>✔ Servicio puntual garantizado</li>
+        </ul>
+    </div>
+</section>
+
+<!-- GALERIA -->
+<section class="section" id="galeria">
+    <div class="container">
+        <h2>Galería de nuestros eventos</h2>
+
+        <div class="carousel-container">
+
+            <button class="arrow left" onclick="scrollCarousel(-1)">
+                &#10094;
+            </button>
+
+            <div class="carousel" id="carousel">
+
+                <img src="img/galeria1.jpg" alt="Evento 1">
+                <video autoplay muted loop playsinline>
+                    <source src="videos/video1.mp4" type="video/mp4">
+                    Tu navegador no soporta video.
+                </video>
+                <img src="img/galeria2.jpg" alt="Evento 2">
+                <img src="img/galeria3.jpg" alt="Evento 3">
+                <img src="img/galeria4.jpg" alt="Evento 4">
+                <img src="img/galeria5.jpg" alt="Evento 5">
+                <img src="img/galeria6.jpg" alt="Evento 6">
+
+            </div>
+
+            <button class="arrow right" onclick="scrollCarousel(1)">
+                &#10095;
+            </button>
+
+        </div>
+    </div>
+</section>
+
+<!-- PERSONAJES -->
+<section class="section" id="personajes">
+    <div class="container">
+        <h2>Nuestros personajes</h2>
+
+        <div class="personajes-grid">
+        </div>
+
+    </div>
+</section>
+
+<div id="modal" class="modal">
+    <span class="cerrar" onclick="cerrarModal()">&times;</span>
+    <img id="imgGrande">
+</div>
+
+<!-- CONTRATAR -->
+<section class="section contratar" id="contratar">
+    <div class="container">
+        <h2>¿Cómo contratar?</h2>
+
+        <div class="pasos">
+
+            <div class="paso">
+                <div class="numero">1</div>
+                <h3>Escríbenos por WhatsApp</h3>
+            </div>
+
+            <div class="paso">
+                <div class="numero">2</div>
+                <h3>Confirma fecha</h3>
+            </div>
+
+            <div class="paso">
+                <div class="numero">3</div>
+                <h3>¡Nos vemos en tu evento!</h3>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="section testimonios">
+    <div class="container">
+        <h2>Lo que dicen nuetros clientes</h2>
+
+        <div class="testimonios-grid">
+
+            <div class="testimonio-card">
+                <div class="cliente-img cliente1"></div>
+                <p class="mensaje">
+                    “Recomiendo al 100 por ciento mundo mágico cobra,la verdad vale mucho la pena muy lindas las botargas y llegan a la hora indicada,lo mejor que los precios son muy accesibles para todos muy padre todo.”
+                </p>
+                
+                <div class="estrellas">
+                    ★★★★★
+                </div>
+
+                <h4>- Diego Hernández</h4>
+            </div>
+
+            <div class="testimonio-card">
+                <div class="cliente-img cliente2"></div>
+                <p class="mensaje">
+                    “Muy recomendable la verdad!! le gustaron mucho a los niños, no se tardaron en llegar muy  entretenidas las botargiitas”
+                </p>
+                
+                <div class="estrellas">
+                    ★★★★★
+                </div>
+
+                <h4>- christopher cruz</h4>
+            </div>
+            <div class="testimonio-card">
+                <div class="cliente-img cliente3"></div>
+                <p class="mensaje">“Excelente servicio, las botargas están hermosas. Me gusto mucho darle esta sorpresa a mi novio:)”</p>
+                
+                <div class="estrellas">
+                    ★★★★★
+                </div>
+
+                <h4>- Alondra González</h4>
+            </div>
+
+            <div class="testimonio-card">
+                <div class="cliente-img cliente4"></div>
+                <p class="mensaje">“Puntuales y muy amables. Definitivamente volveré a contratar.”</p>
+                
+                <div class="estrellas">
+                    ★★★★★
+                </div>
+
+                <h4>- Jose Martinez</h4>
+            </div>
+
+        </div>
+            <!-- BOTÓN GOOGLE -->
+            <div class="ver-resenas">
+                <a href="https://g.page/r/CRrDOA0asg7ZEBM/review" target="_blank">
+                    Ver más reseñas en Google
+                </a>
+            </div>
+    </div>
+</section>
+
+
+
+
+<!-- QUIENES SOMOS -->
+<section class="section informacion" id="informacion">
+    <div class="container info-grid">
+
+        <div class="info-texto">
+            <h2>Quiénes somos</h2>
+            <p>
+            En <strong>Mundo Mágico Cobra</strong> somos una familia dedicada a transformar momentos especiales en recuerdos inolvidables. Nos apasiona llevar alegría, sorpresa y emoción a cada celebración a través de nuestras entregas de regalos con botarga y la animación de todo tipo de eventos.
+            </p>
+
+            <p>
+            Cada sonrisa, cada abrazo y cada expresión de sorpresa es lo que nos inspira a dar lo mejor en cada presentación. Además, contamos con renta de botargas y elaboramos arreglos personalizados de dulces y flores, cuidando cada detalle para que tu evento sea único y mágico.
+            </p>
+
+            <p>
+            Nuestro compromiso es ofrecer un servicio puntual, profesional y lleno de entusiasmo, porque más que un evento, creamos experiencias que se quedan en el corazón.
+            </p>
+        </div>
+
+        <div class="info-imagen">
+            <img src="img/familia.jpg" alt="Botarga en evento">
+        </div>
+
+    </div>
+</section>
+
+<!-- REDES SOCIALES -->
+<section class="section" id="redes">
+    <div class="container">
+        <h2>Síguenos en redes sociales</h2>
+
+        <div class="redes-grid">
+
+            <!-- VIDEO -->
+            <div class="red-box">
+                <h3>🎥 Mira uno de nuestros eventos</h3>
+
+                <!-- AQUÍ PEGAS EL LINK DEL VIDEO -->
+                <div class="tiktok-container">
+                    <!-- PEGA AQUÍ SOLO EL BLOCKQUOTE -->
+                    <blockquote class="tiktok-embed"
+                        cite="https://www.tiktok.com/@mundomagicocobra12/video/7370409897172667653"
+                        data-video-id="7370409897172667653">
+                        <section></section>
+                    </blockquote>
+    </div>
+            </div>
+
+            <!-- INSTAGRAM -->
+            <div class="red-box">
+    <h3>📸 Síguenos en Instagram</h3>
+
+    <p class="red-texto">
+        Descubre más momentos mágicos, entregas sorpresa y eventos llenos de alegría.
+    </p>
+
+        <div class="instagram-container">
+            <blockquote 
+                class="instagram-media"
+                data-instgrm-permalink="https://www.instagram.com/p/C5eYoNaLiyC/"
+                data-instgrm-version="14">
+            </blockquote>
+        </div>
+</div>
+
+
+        </div>
+    </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="footer" id="contacto">
+    <div class="container footer-content">
+
+        <h3>Contacto</h3>
+
+        <div class="footer-items">
+
+            <a href="https://www.google.com/maps/search/México" target="_blank" class="footer-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>México</span>
+            </a>
+
+            <a href="https://wa.me/525951080493" target="_blank" class="footer-item">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>+52 59 5108 0493</span>
+            </a>
+
+            <a href="https://instagram.com/mundomagicocobra12" target="_blank" class="footer-item">
+                <i class="fa-brands fa-instagram"></i>
+                <span>@mundomagicocobra12</span>
+            </a>
+
+            <a href="https://tiktok.com/@mundomagicocobra12" target="_blank" class="footer-item">
+                <i class="fa-brands fa-tiktok"></i>
+                <span>@mundomagicocobra12</span>
+            </a>
+
+        </div>
+
+    </div>
+</footer>
+
+
+<script async src="https://www.tiktok.com/embed.js"></script>
+<script async src="//www.instagram.com/embed.js"></script>
+<script>
+const carousel = document.querySelector(".carousel");
+const btnNext = document.querySelector(".arrow.right");
+const btnPrev = document.querySelector(".arrow.left");
+
+const scrollAmount = 320; // ancho aproximado de cada imagen + gap
+
+btnNext.addEventListener("click", () => {
+    // Si ya está al final
+    if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 5) {
+        // Regresa al inicio
+        carousel.scrollTo({
+            left: 0,
+            behavior: "smooth"
+        });
+    } else {
+        carousel.scrollBy({
+            left: scrollAmount,
+            behavior: "smooth"
+        });
+    }
+});
+
+btnPrev.addEventListener("click", () => {
+    // Si ya está al inicio
+    if (carousel.scrollLeft <= 0) {
+        // Se va al final
+        carousel.scrollTo({
+            left: carousel.scrollWidth,
+            behavior: "smooth"
+        });
+    } else {
+        carousel.scrollBy({
+            left: -scrollAmount,
+            behavior: "smooth"
+        });
+    }
+});
+</script>
+
+<script>
+const menuToggle = document.querySelector(".menu-toggle");
+const navLinks = document.querySelector(".nav-links");
+
+menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+
+    if (navLinks.classList.contains("active")) {
+        menuToggle.textContent = "✖";
+    } else {
+        menuToggle.textContent = "☰";
+    }
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        menuToggle.textContent = "☰";
+    });
+});
+</script>
+
+<a href="https://wa.me/525951080493" 
+   class="whatsapp-float" 
+   target="_blank">
+   <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" 
+        alt="WhatsApp">
+</a>
+
+<script src="js/main.js"></script>
+<script type="module" src="js/personajes.js"></script>
+
+<script>
+document.addEventListener("click", function (e) {
+
+    //  abrir imagen al dar click
+    if (e.target.matches(".personaje-card img")) {
+        abrirImagen(e.target);
+    }
+
+    // 👉 cerrar al dar click en la X
+    if (e.target.matches(".cerrar")) {
+        cerrarModal();
+    }
+
+});
+
+//  función para abrir
+function abrirImagen(img) {
+    const modal = document.getElementById("modal");
+    const imagenGrande = document.getElementById("imgGrande");
+
+    imagenGrande.src = img.src;
+    modal.classList.add("activo");
+}
+
+//  función para cerrar
+function cerrarModal() {
+    document.getElementById("modal").classList.remove("activo");
+}
+
+//  cerrar al dar click fuera de la imagen
+document.getElementById("modal").addEventListener("click", function (e) {
+    if (e.target.id === "modal") {
+        cerrarModal();
+    }
+});
+</script>
+
+</body>
+</html>
