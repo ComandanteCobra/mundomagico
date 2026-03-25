@@ -2,6 +2,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/fireba
 
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
+import { getStorage } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js"; // 🔥 NUEVO
+
 const firebaseConfig = {
     apiKey: "AIzaSyC6ucn_SfxpHwifFtawdGCQvaap1YlnK-g",
     authDomain: "cobraweb-9f803.firebaseapp.com",
@@ -9,8 +11,9 @@ const firebaseConfig = {
     storageBucket: "cobraweb-9f803.firebasestorage.app",
     messagingSenderId: "1069149879530",
     appId: "1:1069149879530:web:b3c90b04175fbab0492b93"
-  };
+};
 
 const app = initializeApp(firebaseConfig);
 
 export const db = getFirestore(app);
+export const storage = getStorage(app); // 🔥 EXPORTAMOS STORAGE
