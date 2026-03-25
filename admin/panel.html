@@ -3,210 +3,59 @@
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Panel Admin</title>
 
-<style>
-
-body{
-font-family:Arial;
-background:#f4f4f4;
-padding:40px;
-}
-
-.container{
-max-width:700px;
-margin:auto;
-background:white;
-padding:30px;
-border-radius:10px;
-}
-
-input{
-width:100%;
-padding:10px;
-margin:10px 0;
-}
-
-button{
-padding:10px 15px;
-background:#2e7d32;
-color:white;
-border:none;
-cursor:pointer;
-margin-top:5px;
-}
-
-.personaje{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-top:10px;
-padding:10px;
-border-bottom:1px solid #ddd;
-}
-
-.logout{
-background:#c62828;
-float:right;
-}
-
-</style>
+<link rel="stylesheet" href="panel.css">
 
 </head>
 
 <body>
 
 <script>
-/* PROTECCIÓN LOGIN */
-
 if(localStorage.getItem("admin") !== "true"){
-window.location.href="index.html";
+    window.location.href="index.html";
 }
 </script>
 
-<div class="container">
+<div class="panel">
 
-<h2>Panel administrador</h2>
+    <div class="topbar">
+        <h2>⚙️ Panel Administrador</h2>
+        <button class="logout" onclick="logout()">Cerrar sesión</button>
+    </div>
 
-<button class="logout" onclick="logout()">Cerrar sesión</button>
+    <!-- PERSONAJES -->
+    <section class="card">
+        <h3>🎭 Personajes</h3>
 
-<h3>Agregar personaje</h3>
+        <input type="text" id="nombre" placeholder="Nombre del personaje">
+        <input type="file" id="imagen">
 
-<input type="text" id="nombre" placeholder="Nombre del personaje">
+        <button onclick="subirPersonaje()">Agregar</button>
 
-<input type="file" id="imagen">
+        <div id="lista"></div>
+    </section>
 
-<button onclick="subirPersonaje()">Guardar</button>
+    <!-- GALERÍA -->
+    <section class="card">
+        <h3>🖼️ Galería</h3>
 
-<h3>Personajes actuales</h3>
+        <select id="tipo">
+            <option value="imagen">Imagen</option>
+            <option value="video">Video</option>
+        </select>
 
-<div id="lista"></div>
+        <input type="file" id="archivoGaleria">
+
+        <button onclick="subirGaleria()">Agregar a galería</button>
+
+        <div id="listaGaleria"></div>
+    </section>
 
 </div>
 
-<script type="module">
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
-import {
-getFirestore,
-collection,
-addDoc,
-getDocs,
-deleteDoc,
-doc
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-import {
-getStorage,
-ref,
-uploadBytes,
-getDownloadURL
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
-
-
-/* CONFIG FIREBASE */
-
-const firebaseConfig = {
-    apiKey: "AIzaSyC6ucn_SfxpHwifFtawdGCQvaap1YlnK-g",
-    authDomain: "cobraweb-9f803.firebaseapp.com",
-    projectId: "cobraweb-9f803",
-    storageBucket: "cobraweb-9f803.firebasestorage.app",
-    messagingSenderId: "1069149879530",
-    appId: "1:1069149879530:web:b3c90b04175fbab0492b93"
-  };
-
-const app = initializeApp(firebaseConfig);
-
-const db = getFirestore(app);
-
-const storage = getStorage(app);
-
-
-/* AGREGAR PERSONAJE */
-
-window.subirPersonaje = async function(){
-
-const nombre = document.getElementById("nombre").value;
-
-const imagenFile = document.getElementById("imagen").files[0];
-
-if(!nombre || !imagenFile){
-
-alert("Completa todos los campos");
-
-return;
-
-}
-
-const storageRef = ref(storage,"personajes/"+imagenFile.name);
-
-await uploadBytes(storageRef,imagenFile);
-
-const url = await getDownloadURL(storageRef);
-
-await addDoc(collection(db,"personajes"),{
-
-nombre:nombre,
-imagen:url
-
-});
-
-alert("Personaje agregado");
-
-location.reload();
-
-}
-
-
-/* CARGAR PERSONAJES */
-
-async function cargar(){
-
-const lista = document.getElementById("lista");
-
-const querySnapshot = await getDocs(collection(db,"personajes"));
-
-querySnapshot.forEach((docu)=>{
-
-const data = docu.data();
-
-lista.innerHTML += `
-<div class="personaje">
-${data.nombre}
-<button onclick="eliminar('${docu.id}')">Eliminar</button>
-</div>
-`;
-
-});
-
-}
-
-cargar();
-
-
-/* ELIMINAR */
-
-window.eliminar = async function(id){
-
-await deleteDoc(doc(db,"personajes",id));
-
-location.reload();
-
-}
-
-
-/* LOGOUT */
-
-window.logout = function(){
-
-localStorage.removeItem("admin");
-
-window.location.href="index.html";
-
-}
-
-</script>
+<script type="module" src="admin.js"></script>
 
 </body>
 </html>
