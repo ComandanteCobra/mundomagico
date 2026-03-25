@@ -895,7 +895,7 @@ body {
     margin: 0 auto !important;
 }
 
-/* 📱 RESPONSIVE */
+/*  RESPONSIVE */
 @media (max-width: 768px) {
     .redes-grid {
         grid-template-columns: 1fr;
@@ -1003,6 +1003,12 @@ body {
     right: -25px;
 }
 
+@media (max-width: 768px) {
+    .arrow {
+        display: none !important;
+    }
+}
+
 /* BOTÓN */
 .whatsapp-float {
     position: fixed;
@@ -1036,7 +1042,7 @@ body {
 /* TEXTO BURBUJA */
 .whatsapp-texto {
     position: absolute;
-    right: 75px; /*  sale a la izquierda */
+    right: 75px; /* sale a la izquierda */
     
     background: white;
     color: #2e7d32;
@@ -1056,23 +1062,28 @@ body {
     transition: 0.3s ease;
 }
 
-/*  APARECE EN HOVER */
+/* HOVER TEXTO (PC) */
 .whatsapp-float:hover .whatsapp-texto {
     opacity: 1;
     transform: translateX(0);
-}
-
-@media (max-width: 768px) {
-    .whatsapp-texto {
-        font-size: 13px;
-        padding: 6px 12px;
-    }
 }
 
 /* HOVER BOTÓN */
 .whatsapp-float:hover {
     transform: scale(1.15);
     box-shadow: 0 12px 35px rgba(0,0,0,0.35);
+}
+
+/*  CELULAR: SIEMPRE VISIBLE */
+@media (max-width: 768px) {
+    .whatsapp-texto {
+        opacity: 1;
+        transform: translateX(0);
+        font-size: 13px;
+        padding: 6px 12px;
+        right: 70px;
+        bottom: 5px;
+    }
 }
 
 /* ANIMACIÓN */
