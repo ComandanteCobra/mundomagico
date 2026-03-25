@@ -1,0 +1,86 @@
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f6f8;
+    margin:0;
+}
+
+.panel{
+    max-width:1000px;
+    margin:auto;
+    padding:20px;
+}
+
+/* TOP */
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.logout{
+    background:#c62828;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* TARJETAS */
+.card{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    margin-bottom:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* INPUTS */
+input, select{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border-radius:8px;
+    border:1px solid #ddd;
+}
+
+/* BOTONES */
+button{
+    background:#2e7d32;
+    color:white;
+    border:none;
+    padding:10px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#1b5e20;
+}
+
+/* LISTAS */
+.personaje-item, .galeria-item{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-top:10px;
+    padding:10px;
+    border-bottom:1px solid #eee;
+}
+
+.personaje-item img,
+.galeria-item img{
+    width:50px;
+    border-radius:8px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    .topbar{
+        flex-direction:column;
+        gap:10px;
+    }
+}
