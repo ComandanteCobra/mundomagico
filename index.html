@@ -61,20 +61,8 @@
                 &#10094;
             </button>
 
-            <div class="carousel" id="carousel">
-
-                <img src="img/galeria1.jpg" alt="Evento 1">
-                <video autoplay muted loop playsinline>
-                    <source src="videos/video1.mp4" type="video/mp4">
-                    Tu navegador no soporta video.
-                </video>
-                <img src="img/galeria2.jpg" alt="Evento 2">
-                <img src="img/galeria3.jpg" alt="Evento 3">
-                <img src="img/galeria4.jpg" alt="Evento 4">
-                <img src="img/galeria5.jpg" alt="Evento 5">
-                <img src="img/galeria6.jpg" alt="Evento 6">
-
-            </div>
+            <!--  AQUÍ SE LLENA DINÁMICAMENTE -->
+            <div class="carousel" id="carousel"></div>
 
             <button class="arrow right" onclick="scrollCarousel(1)">
                 &#10095;
@@ -129,7 +117,7 @@
 <!-- TESTIMONIOS -->
 <section class="section testimonios">
     <div class="container">
-        <h2>Lo que dicen nuetros clientes</h2>
+        <h2>Lo que dicen nuestros clientes</h2>
 
         <div class="testimonios-grid">
 
@@ -197,18 +185,24 @@
 <section class="section informacion" id="informacion">
     <div class="container info-grid">
 
-        <div class="info-texto">
-            <h2>Quiénes somos</h2>
-            <p>
-            En <strong>Mundo Mágico Cobra</strong> somos una familia dedicada a transformar momentos especiales en recuerdos inolvidables. Nos apasiona llevar alegría, sorpresa y emoción a cada celebración a través de nuestras entregas de regalos con botarga y la animación de todo tipo de eventos.
+        <div class="info-texto animar">
+            <h2 class="animar">Quiénes somos</h2>
+
+            <p class="intro animar delay-1">
+                En <strong>Mundo Mágico Cobra</strong> somos una familia dedicada a transformar momentos especiales en recuerdos inolvidables.
             </p>
 
-            <p>
-            Cada sonrisa, cada abrazo y cada expresión de sorpresa es lo que nos inspira a dar lo mejor en cada presentación. Además, contamos con renta de botargas y elaboramos arreglos personalizados de dulces y flores, cuidando cada detalle para que tu evento sea único y mágico.
+            <p class="animar delay-2">
+                Nos apasiona llevar alegría, sorpresa y emoción a cada celebración a través de nuestras entregas con botarga y animación de eventos.
             </p>
 
-            <p>
-            Nuestro compromiso es ofrecer un servicio puntual, profesional y lleno de entusiasmo, porque más que un evento, creamos experiencias que se quedan en el corazón.
+            <p class="animar delay-3">
+                Cada sonrisa y cada sorpresa nos inspira a dar lo mejor. También ofrecemos renta de botargas y arreglos personalizados para hacer tu evento único.
+            </p>
+
+            <p class="final animar delay-4">
+                Más que un evento, creamos experiencias que se quedan en el corazón 
+                <span class="latido">💚</span>
             </p>
         </div>
 
@@ -224,42 +218,69 @@
     <div class="container">
         <h2>Síguenos en redes sociales</h2>
 
-        <div class="redes-grid">
+        <!-- 🔵 TIKTOK -->
+        <div class="redes-seccion">
+            <h3 class="titulo-red tiktok">
+                <i class="fab fa-tiktok"></i> TikTok
+            </h3>
 
-            <!-- VIDEO -->
-            <div class="red-box">
-                <h3>🎥 Mira uno de nuestros eventos</h3>
+            <div class="redes-grid">
 
-                <!-- AQUÍ PEGAS EL LINK DEL VIDEO -->
-                <div class="tiktok-container">
-                    <!-- PEGA AQUÍ SOLO EL BLOCKQUOTE -->
+                <div class="red-box">
                     <blockquote class="tiktok-embed"
                         cite="https://www.tiktok.com/@mundomagicocobra12/video/7370409897172667653"
                         data-video-id="7370409897172667653">
                         <section></section>
                     </blockquote>
-    </div>
+                </div>
+
+                <!--  DUPLICA ESTE PARA EL SEGUNDO TIKTOK -->
+                <div class="red-box">
+                    <blockquote class="tiktok-embed"
+                        cite="https://www.tiktok.com/@comandante.cobra/video/7620191057795484936"
+                        data-video-id="7620191057795484936">
+                        <section></section>
+                    </blockquote>
+                </div>
+
             </div>
-
-            <!-- INSTAGRAM -->
-            <div class="red-box">
-    <h3>📸 Síguenos en Instagram</h3>
-
-    <p class="red-texto">
-        Descubre más momentos mágicos, entregas sorpresa y eventos llenos de alegría.
-    </p>
-
-        <div class="instagram-container">
-            <blockquote 
-                class="instagram-media"
-                data-instgrm-permalink="https://www.instagram.com/p/C5eYoNaLiyC/"
-                data-instgrm-version="14">
-            </blockquote>
         </div>
-</div>
 
+        <!-- INSTAGRAM -->
+        <div class="redes-seccion">
+            <h3 class="titulo-red instagram">
+                <i class="fab fa-instagram"></i> Instagram
+            </h3>
 
+            <p class="red-texto">
+                Descubre más momentos mágicos, entregas sorpresa y eventos llenos de alegría.
+            </p>
+
+            <div class="redes-grid">
+
+               <div class="red-box">
+                    <div class="ig-wrap">
+                        <blockquote 
+                            class="instagram-media"
+                            data-instgrm-permalink="https://www.instagram.com/p/DTymWt3jM5V/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                            data-instgrm-version="14">
+                        </blockquote>
+                    </div>
+                </div>
+
+                <div class="red-box">
+                    <div class="ig-wrap">
+                        <blockquote 
+                            class="instagram-media"
+                            data-instgrm-permalink="https://www.instagram.com/p/DOrCE4oDtzw/"
+                            data-instgrm-version="14">
+                        </blockquote>
+                    </div>
+                </div>
+
+            </div>
         </div>
+
     </div>
 </section>
 
@@ -269,6 +290,9 @@
     <div class="container footer-content">
 
         <h3>Contacto</h3>
+        <p class="footer-sub">
+            Agenda tu evento o contáctanos por cualquiera de estos medios 
+        </p>
 
         <div class="footer-items">
 
@@ -293,6 +317,10 @@
             </a>
 
         </div>
+
+        <p class="footer-copy">
+            © <span id="year"></span> Mundo Mágico Cobra — Todos los derechos reservados
+        </p>
 
     </div>
 </footer>
@@ -367,10 +395,13 @@ document.querySelectorAll(".nav-links a").forEach(link => {
    target="_blank">
    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" 
         alt="WhatsApp">
+    <span class="whatsapp-texto">¡Escríbenos!</span>
+</a>
 </a>
 
 <script src="js/main.js"></script>
 <script type="module" src="js/personajes.js"></script>
+<script type="module" src="js/galeria.js"></script>
 
 <script>
 document.addEventListener("click", function (e) {
@@ -380,7 +411,7 @@ document.addEventListener("click", function (e) {
         abrirImagen(e.target);
     }
 
-    // 👉 cerrar al dar click en la X
+    //  cerrar al dar click en la X
     if (e.target.matches(".cerrar")) {
         cerrarModal();
     }
@@ -408,6 +439,25 @@ document.getElementById("modal").addEventListener("click", function (e) {
     }
 });
 </script>
+
+ <script>
+    const elementos = document.querySelectorAll('.animar');
+
+    const mostrarElementos = () => {
+        elementos.forEach(el => {
+            const top = el.getBoundingClientRect().top;
+            const pantalla = window.innerHeight;
+
+            if (top < pantalla - 100) {
+                el.classList.add('visible');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', mostrarElementos);
+    </script>
+
+    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 
 </body>
 </html>
