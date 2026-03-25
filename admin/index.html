@@ -3,40 +3,97 @@
 <head>
 
 <meta charset="UTF-8">
-<title>Admin</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin | Mundo Mágico Cobra</title>
 
 <style>
 
+/*  FONDO */
 body{
-font-family:Arial;
-background:#f4f4f4;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1b5e20, #2e7d32);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    margin:0;
 }
 
+/*  CAJA */
 .login-box{
-background:white;
-padding:40px;
-border-radius:10px;
-width:300px;
-text-align:center;
+    background:white;
+    padding:40px 30px;
+    border-radius:20px;
+    width:320px;
+    text-align:center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    animation: fadeIn 0.6s ease;
 }
 
+/*  ANIMACIÓN */
+@keyframes fadeIn {
+    from{
+        opacity:0;
+        transform: translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform: translateY(0);
+    }
+}
+
+/*  TÍTULO */
+.login-box h2{
+    margin-bottom:20px;
+    color:#1b5e20;
+}
+
+/*  INPUTS */
 input{
-width:100%;
-padding:10px;
-margin:10px 0;
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border-radius:10px;
+    border:1px solid #ddd;
+    outline:none;
+    transition:0.3s;
 }
 
+input:focus{
+    border-color:#2e7d32;
+    box-shadow:0 0 5px rgba(46,125,50,0.4);
+}
+
+/*  BOTÓN */
 button{
-padding:10px;
-background:#2e7d32;
-color:white;
-border:none;
-cursor:pointer;
-width:100%;
+    padding:12px;
+    background:#2e7d32;
+    color:white;
+    border:none;
+    cursor:pointer;
+    width:100%;
+    border-radius:10px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#1b5e20;
+    transform:translateY(-2px);
+}
+
+/*  ERROR */
+#error{
+    margin-top:10px;
+    font-size:14px;
+}
+
+/*  RESPONSIVE */
+@media (max-width: 400px){
+    .login-box{
+        width:90%;
+        padding:30px 20px;
+    }
 }
 
 </style>
@@ -47,7 +104,7 @@ width:100%;
 
 <div class="login-box">
 
-<h2>Panel administrador</h2>
+<h2>🔐 Panel Administrador</h2>
 
 <input type="text" id="user" placeholder="Usuario">
 
@@ -55,7 +112,7 @@ width:100%;
 
 <button onclick="login()">Entrar</button>
 
-<p id="error" style="color:red"></p>
+<p id="error"></p>
 
 </div>
 
@@ -63,19 +120,16 @@ width:100%;
 
 function login(){
 
-const user = document.getElementById("user").value;
-const pass = document.getElementById("pass").value;
+const user = document.getElementById("user").value.trim();
+const pass = document.getElementById("pass").value.trim();
 
 if(user === "personajes.comandante" && pass === "CobraPersonajes#2026"){
 
 localStorage.setItem("admin","true");
-
 window.location.href="panel.html";
 
 }else{
-
-document.getElementById("error").innerText="Datos incorrectos";
-
+document.getElementById("error").innerText="Usuario o contraseña incorrectos";
 }
 
 }
