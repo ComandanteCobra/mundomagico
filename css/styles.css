@@ -240,42 +240,88 @@ body {
 
 /* FOOTER */
 .footer {
-    background-color: #3a3a3a; /* gris fuerte */
+    background: linear-gradient(to right, #1f2937, #111827);
     color: white;
-    padding: 30px 0;
-}
-
-.footer h3 {
+    padding: 50px 20px 30px;
     text-align: center;
-    margin-bottom: 30px;
-    font-weight: 500;
 }
 
+/* TÍTULO */
+.footer h3 {
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 26px;
+    letter-spacing: 0.5px;
+}
+
+/* SUBTEXTO OPCIONAL */
+.footer-sub {
+    color: #9ca3af;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+/* CONTENEDOR */
 .footer-items {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 60px;
+    gap: 25px;
     flex-wrap: wrap;
 }
 
+/* ITEM */
 .footer-item {
     display: flex;
     align-items: center;
     gap: 10px;
     text-decoration: none;
-    color: white;
-    font-size: 15px;
-    transition: 0.3s ease;
+    color: #e5e7eb;
+    font-size: 14px;
+
+    background: #2a2f36;
+    padding: 12px 18px;
+    border-radius: 30px;
+
+    transition: all 0.3s ease;
 }
 
+/* ICONOS */
 .footer-item i {
-    font-size: 18px;
-    color: white; /* iconos blancos */
+    font-size: 16px;
+    color: #2e7d32;
+    transition: 0.3s;
 }
 
+/* HOVER PRO  */
 .footer-item:hover {
-    opacity: 0.7;
+    background: #2e7d32;
+    color: white;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.footer-item:hover i {
+    color: white;
+}
+
+/* COPYRIGHT */
+.footer-copy {
+    margin-top: 30px;
+    font-size: 13px;
+    color: #6b7280;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .footer-items {
+        gap: 15px;
+    }
+
+    .footer-item {
+        font-size: 13px;
+        padding: 10px 14px;
+    }
 }
 
 
@@ -319,88 +365,134 @@ body {
     }
 }
 
-/* SECCION CONTRATAR */
+/* SECCIÓN */
 .contratar {
-    padding: 40px 0; /* mismo ritmo vertical que las demás */
+    padding: 30px 20px;
     text-align: center;
+    background: linear-gradient(135deg, #ffffff, #ffffff);
 }
 
-/* Título igual que galería */
+/* TÍTULO */
 .contratar h2 {
     color: #1b5e20;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+    font-size: 30px;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
 }
 
-/* Línea decorativa */
 .contratar h2::after {
     content: "";
     display: block;
-    width: 60px;
+    width: 70px;
     height: 4px;
     background-color: #2e7d32;
-    margin: 8px auto 0;
+    margin: 10px auto 0;
     border-radius: 10px;
 }
 
-/* Contenedor de pasos */
+/* CONTENEDOR */
 .pasos {
+    margin-top: 60px;
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    margin-top: 40px;
+    gap: 40px;
     align-items: center;
+    position: relative;
 }
 
-/* Cada paso */
-.paso {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    max-width: 600px;
-}
-
-/* Número */
-.numero {
-    width: 50px;
-    height: 50px;
-    background-color: #2e7d32;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 18px;
-    box-shadow: 0 5px 15px rgba(46,125,50,0.25);
-}
-
-/* En pantallas grandes */
+/* DESKTOP */
 @media (min-width: 768px) {
     .pasos {
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-between;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Línea */
+    .pasos::before {
+        content: "";
+        position: absolute;
+        top: 25px;
+        left: 10%;
+        width: 80%;
+        height: 3px;
+        background: #c8e6c9;
+        z-index: 0;
     }
 }
-/* SECCION QUIENES SOMOS */
-.informacion {
-    padding: 10px 0; /* mismo ritmo vertical que galería y contratar */
+
+/* PASO */
+.paso {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 200px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
 }
 
-/* Título consistente */
+/* CÍRCULO */
+.numero {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: #2e7d32;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: bold;
+    font-size: 18px;
+
+    box-shadow: 0 6px 15px rgba(46,125,50,0.3);
+    transition: 0.3s ease;
+}
+
+/* TEXTO */
+.paso p {
+    margin-top: 15px;
+    font-size: 15px;
+    color: #333;
+    line-height: 1.4;
+}
+
+/* HOVER SUAVE */
+.paso:hover .numero {
+    transform: scale(1.2);
+    background: #1b5e20;
+}
+
+/* SECCION QUIENES SOMOS */
+.informacion {
+    padding: 60px 0; /* más aire visual */
+    background: linear-gradient(to bottom, #ffffff, #f4f6f8);
+}
+
+/* TÍTULO */
 .informacion h2 {
     color: #1b5e20;
     text-align: left;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: 700;
+    position: relative;
 }
 
-/* Línea decorativa igual que otras secciones */
+/* Línea decorativa */
 .informacion h2::after {
     content: "";
     display: block;
-    width: 60px;
+    width: 70px;
     height: 4px;
     background-color: #2e7d32;
-    margin-top: 8px;
+    margin-top: 10px;
     border-radius: 10px;
 }
 
@@ -412,21 +504,28 @@ body {
     gap: 60px;
     flex-wrap: wrap;
     max-width: 1100px;
-    margin: 40px auto 0; /* separación elegante del título */
+    margin: 30px auto 0;
 }
 
 /* TEXTO */
 .info-texto {
     flex: 1;
     min-width: 300px;
-    max-width: 550px;
+    max-width: 520px;
 }
 
 .info-texto p {
     text-align: justify;
-    line-height: 1.8;
-    margin-bottom: 15px;
-    color: #374151; /* gris elegante como otras secciones */
+    line-height: 1.7;
+    margin-bottom: 12px;
+    color: #4b5563;
+    font-size: 15.5px;
+}
+
+/* EFECTO SUTIL AL PASAR */
+.info-texto p:hover {
+    color: #1f2937;
+    transition: 0.3s;
 }
 
 /* IMAGEN */
@@ -435,22 +534,82 @@ body {
     min-width: 300px;
     display: flex;
     justify-content: center;
+    position: relative;
 }
 
+/* Imagen con efecto pro */
 .info-imagen img {
     width: 100%;
     max-width: 420px;
     border-radius: 20px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    transition: 0.4s ease;
 }
-/*logo*/
+
+/* Hover elegante */
+.info-imagen img:hover {
+    transform: scale(1.03);
+}
+
+/* DETALLE DECORATIVO (fondo detrás de imagen) */
+.info-imagen::before {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: #2e7d32;
+    border-radius: 50%;
+    opacity: 0.08;
+    top: -30px;
+    right: 20px;
+    z-index: -1;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .info-grid {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .informacion h2 {
+        text-align: center;
+    }
+
+    .informacion h2::after {
+        margin: 10px auto 0;
+    }
+
+    .info-texto p {
+        text-align: center;
+    }
+}
+
+.animar {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+.delay-3 { transition-delay: 0.6s; }
+.delay-4 { transition-delay: 0.8s; }
+
+.animar.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/*LOGO*/
 .logo img {
     height: 80px;
 }
 
 /* SECCIÓN PERSONAJES */
 #personajes {
-    background: #f8fafc; /* fondo más limpio */
+    background: #ffffff; /* fondo más limpio */
 }
 
 /* GRID */
@@ -559,7 +718,7 @@ body {
 
 /*testimonios*/
 .testimonios {
-    background: #f5f5f5;
+    background: #ffffff;
     text-align: center;
 }
 
@@ -568,7 +727,7 @@ body {
     flex-wrap: wrap;
     gap: 30px;
     justify-content: center;
-    margin-top: 40px;
+    margin-top: 50px;
 }
 
 .testimonio-card {
@@ -604,121 +763,197 @@ body {
     color: #555;
 }
 
-/* REDES SOCIALES */
+/*  REDES SOCIALES */
 #redes {
     background: #f4f6f8;
-    padding: 20px 0; /* mismo ritmo vertical */
+    padding: 60px 0;
     text-align: center;
 }
 
-/* TÍTULO CENTRADO Y CON IDENTIDAD */
+/* TÍTULO */
 #redes h2 {
-    color: #1b5e20;  /* verde marca */
-    margin-bottom: 20px;
+    color: #1b5e20;
+    margin-bottom: 10px;
     position: relative;
-    display: inline-block; /* clave para centrar con línea */
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 700;
 }
 
-/* Línea decorativa centrada */
+/* Línea decorativa */
 #redes h2::after {
     content: "";
     display: block;
-    width: 60px;
+    width: 70px;
     height: 4px;
     background-color: #2e7d32;
-    margin: 8px auto 0; /* 👈 esto lo centra */
+    margin: 10px auto 0;
     border-radius: 10px;
 }
 
-.redes h2 {
-    margin-bottom: 50px;
-    font-size: 28px;
-    color: #222;
+/*  SECCIONES (TikTok / Instagram) */
+.redes-seccion {
+    margin-top: 60px;
+    text-align: left;
+}
+
+
+/* TÍTULOS BONITOS */
+.titulo-red {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+    font-size: 20px;
+    font-weight: 600;
+    
+    padding: 8px 16px;
+    border-radius: 50px;
+
+    border-left: 4px solid #2e7d32;
+    padding-left: 10px;
+    
+    margin-bottom: 25px;
+    
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+/* ICONOS */
+.titulo-red i {
+    font-size: 18px;
+}
+
+/* TIKTOK */
+.titulo-red.tiktok {
+    background: #000;
+    color: #fff;
+}
+
+/* INSTAGRAM */
+.titulo-red.instagram {
+    background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7);
+    color: white;
+}
+
+/* TEXTO */
+.red-texto {
+    margin-bottom: 25px;
+    color: #555;
+    line-height: 1.6;
 }
 
 .redes-grid {
-    display: flex;
-    gap: 40px;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    justify-items: center;
 }
 
+/* TARJETA */
 .red-box {
-    background: white;
-    padding: 35px;
+    background: #ffffff;
+    padding: 15px;
     border-radius: 20px;
-    flex: 1;
-    min-width: 300px;
-    max-width: 500px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    transition: 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    
+    width: 100%;
+    max-width: 350px;
+
+    display: flex;
+    justify-content: center;
 }
 
-.red-box:hover {
-    transform: translateY(-5px);
-}
-
-.red-box h3 {
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.red-texto {
-    margin-bottom: 20px;
-    line-height: 1.6;
-    color: #555;
-}
-
-/* Video */
+/*  TIKTOK PERFECTO */
 .tiktok-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 9 / 16; /*  vertical real */
+    overflow: hidden;
+    border-radius: 15px;
 }
 
-.tiktok-embed {
+.tiktok-container iframe {
     width: 100% !important;
-    max-width: 400px !important;
-}
- /*Ig*/
- .instagram-container {
-    display: flex;
-    justify-content: center;
-    padding: 40px 20px;
+    height: 100% !important;
 }
 
+/*  INSTAGRAM (SIN RECORTE) */
+.instagram-container {
+    width: 100%;
+    max-width: 320px;
+
+    display: flex;
+    justify-content: center;
+}
+
+/*  ESTE ES EL FIX REAL */
 .instagram-media {
-    max-width: 380px !important;
     width: 100% !important;
-    border-radius: 15px !important;
+    max-width: 320px !important;
+    min-width: unset !important;
+    margin: 0 auto !important;
+}
+
+/* 📱 RESPONSIVE */
+@media (max-width: 768px) {
+    .redes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .red-box {
+        max-width: 100%;
+    }
 }
 
 /* GALERIA CARRUSEL */
-.carousel-container {
-    position: relative;
-    margin-top: 40px;
+
+#galeria {
+    background: #ffffff;
 }
 
+/* CONTENEDOR */
+.carousel-container {
+    position: relative;
+    margin-top: 50px;
+    padding: 10px 0;
+     z-index: 1;
+}
+
+/* CARRUSEL */
 .carousel {
     display: flex;
     gap: 20px;
     overflow-x: auto;
     scroll-behavior: smooth;
-    scrollbar-width: none; /* Firefox */
+    scrollbar-width: none;
+    padding: 10px; /*  aire lateral */
 }
 
 .carousel::-webkit-scrollbar {
-    display: none; /* Chrome */
+    display: none;
 }
 
+/* ITEMS */
 .carousel img,
 .carousel video {
     min-width: 280px;
     max-width: 320px;
-    height: 400px;        /* 👈 altura fija igual para todos */
-    object-fit: cover;    /* 👈 recorta sin deformar */
+    height: 400px;
+
+    object-fit: cover;
     border-radius: 20px;
+
     flex-shrink: 0;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+}
+
+/*  HOVER PRO */
+.carousel img:hover,
+.carousel video:hover {
+    transform: scale(1.05);
 }
 
 /* FLECHAS */
@@ -728,11 +963,13 @@ body {
     top: 50%;
     transform: translateY(-50%);
     
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     
-    background: white;
-    color: #2e7d32; /* verde elegante */
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(6px); /*  efecto glass */
+
+    color: #2e7d32;
     
     border: none;
     border-radius: 50%;
@@ -741,21 +978,16 @@ body {
     align-items: center;
     justify-content: center;
     
-    font-size: 20px;
+    font-size: 18px;
     cursor: pointer;
     
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
     transition: all 0.3s ease;
+
+    z-index: 50;
 }
 
-/*  OCULTAR FLECHAS EN CELULAR */
-@media (max-width: 768px) {
-    .arrow {
-        display: none;
-    }
-}
-
-/* Hover elegante */
+/* Hover */
 .arrow:hover {
     background: #2e7d32;
     color: white;
@@ -771,7 +1003,7 @@ body {
     right: -25px;
 }
 
-/* BOTÓN FLOTANTE WHATSAPP */
+/* BOTÓN */
 .whatsapp-float {
     position: fixed;
     bottom: 25px;
@@ -791,22 +1023,59 @@ body {
     
     z-index: 999;
     
-    animation: bounce 2s infinite; /* 👈 movimiento */
+    animation: bounce 2s infinite;
     transition: all 0.3s ease;
 }
 
+/* ICONO */
 .whatsapp-float img {
     width: 35px;
     height: 35px;
 }
 
-/*  hover más pro */
+/* TEXTO BURBUJA */
+.whatsapp-texto {
+    position: absolute;
+    right: 75px; /*  sale a la izquierda */
+    
+    background: white;
+    color: #2e7d32;
+    
+    padding: 8px 14px;
+    border-radius: 20px;
+    
+    font-size: 14px;
+    font-weight: 500;
+    
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    
+    white-space: nowrap;
+
+    opacity: 0;
+    transform: translateX(10px);
+    transition: 0.3s ease;
+}
+
+/*  APARECE EN HOVER */
+.whatsapp-float:hover .whatsapp-texto {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+@media (max-width: 768px) {
+    .whatsapp-texto {
+        font-size: 13px;
+        padding: 6px 12px;
+    }
+}
+
+/* HOVER BOTÓN */
 .whatsapp-float:hover {
-    transform: scale(1.2);
+    transform: scale(1.15);
     box-shadow: 0 12px 35px rgba(0,0,0,0.35);
 }
 
-/*  efecto rebote */
+/* ANIMACIÓN */
 @keyframes bounce {
     0%, 100% {
         transform: translateY(0);
@@ -841,9 +1110,9 @@ body {
 
 /*  modal  */
 .modal {
-    display: none; /* 👈 oculto al inicio */
+    display: none; /* oculto al inicio */
     position: fixed;
-    z-index: 9999; /* 👈 súper importante */
+    z-index: 9999; /* súper importante */
     left: 0;
     top: 0;
     width: 100%;
@@ -912,4 +1181,17 @@ body {
 }
 
 
+/* LATIDOS QUIENES SOMOS*/
+.latido {
+    display: inline-block;
+    animation: latir 1.5s infinite ease-in-out;
+}
 
+@keyframes latir {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+}
