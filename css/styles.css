@@ -98,96 +98,166 @@ body {
     color: #ffb703;
 }
 
-/* HERO */
 .hero {
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* cambiado */
-    text-align: left; /* cambiado */
+    justify-content: flex-start;
+    text-align: left;
     padding: 120px 20px;
     color: white;
+    overflow: hidden;
 
     background: url("../img/fondo.jpg") center center / cover no-repeat;
 }
 
-/* Overlay oscuro suave para mejor contraste */
+/* overlay oscuro */
 .hero::before {
     content: "";
     position: absolute;
     inset: 0;
     background: linear-gradient(
-        rgba(15, 40, 30, 0.55),
-        rgba(15, 40, 30, 0.55)
+        rgba(15, 40, 30, 0.65),
+        rgba(15, 40, 30, 0.65)
     );
+    z-index: 1;
 }
 
-/* Aseguramos que el contenido quede encima */
+/* glow animado elegante */
+.hero::after{
+    content:"";
+    position:absolute;
+    top:-50%;
+    left:-50%;
+    width:200%;
+    height:200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 60%);
+    animation: glow 12s linear infinite;
+    z-index: 1;
+}
+
+@keyframes glow{
+    from{ transform: rotate(0deg); }
+    to{ transform: rotate(360deg); }
+}
+
+/* contenedor encima del overlay */
 .hero .container {
     position: relative;
     z-index: 2;
 }
 
+.hero-content{
+    max-width: 650px;
+}
+
+/* ================= TITULOS ================= */
+
+.hero h1{
+    font-size: 52px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
 .hero h2 {
-    font-weight: 400;   /* quitar negritas */
+    font-weight: 400;
     font-size: 22px;
     margin-bottom: 35px;
-    /*color: #4b5563;*/
     color: white;
     max-width: 600px;
 }
 
-/* TÍTULO PRINCIPAL */
-.hero ul {
-    list-style: none;
-    padding: 0;
-}
+/* ================= BENEFICIOS ================= */
 
-.hero ul li {
-    margin: 8px 0;
-    font-size: 18px;
-    /*color: #374151;*/
-    color: white;
-}
-
-/* BOTÓN WHATSAPP */
-.btn-whatsapp {
-    display: inline-block;
-    padding: 16px 32px;       /* más grande */
-    background-color: #2e7d32; /* verde marca elegante */
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;       /* botón más moderno */
-    font-weight: 600;
-    font-size: 18px;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 20px rgba(46,125,50,0.25);
-    margin-bottom: 30px;
-}
-
-/* Hover elegante */
-.btn-whatsapp:hover {
-    background-color: #1b5e20;
-    transform: translateY(-3px);
-}
-
-/* BENEFICIOS */
 .beneficios {
     list-style: none;
     padding: 0;
     margin: 0;
     font-size: 18px;
-    color: #374151;
 }
 
 .beneficios li {
     margin-bottom: 10px;
 }
 
-/* RESPONSIVE */
+/* ================= BOTÓN WHATSAPP PRO ================= */
+
+.btn-whatsapp {
+    display: inline-block;
+    padding: 16px 32px;
+    background-color: #2e7d32;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+
+    box-shadow: 0 8px 20px rgba(46,125,50,0.25);
+    transition: all 0.3s ease;
+}
+
+/* hover premium */
+.btn-whatsapp:hover {
+    background-color: #1b5e20;
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 18px 35px rgba(0,0,0,0.35);
+}
+
+/* click real */
+.btn-whatsapp:active{
+    transform: translateY(1px) scale(.97);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* brillo animado */
+.btn-whatsapp::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:120%;
+    height:100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,.4), transparent);
+    transition: .6s;
+}
+
+.btn-whatsapp:hover::after{
+    left:120%;
+}
+
+/* ================= ANIMACIONES ENTRADA ================= */
+
+.reveal{
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.reveal.active{
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 1s ease;
+}
+
+.hero-title.active{ transition-delay: .2s; }
+.hero-subtitle.active{ transition-delay: .5s; }
+.hero-btn.active{ transition-delay: .8s; }
+.hero-list.active{ transition-delay: 1.1s; }
+
+/* ================= RESPONSIVE ================= */
+
 @media (max-width: 768px) {
+
     .hero {
         padding: 70px 20px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .hero-content{
+        max-width: 100%;
     }
 
     .hero h1 {
@@ -202,15 +272,7 @@ body {
         font-size: 16px;
         padding: 14px 26px;
     }
-}
-/* BENEFICIOS */
-.beneficios {
-    list-style: none;
-    padding: 0;
-}
 
-.beneficios li {
-    margin-bottom: 8px;
 }
 
 /* SECCIONES */
