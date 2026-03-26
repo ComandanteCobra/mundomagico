@@ -47,18 +47,27 @@
 
 <!-- HERO -->
 <section class="hero" id="inicio">
-    <div class="container">
-        <h1>Sorprende con botargas que hacen tu evento inolvidable </h1>
-        <h2>Entregas sorpresa con botarga que llenan de alegría tu evento</h2>
+    <div class="container hero-content">
 
-        <a href="https://wa.me/525951080493" class="btn-whatsapp" target="_blank">
+        <h1 class="reveal hero-title">
+            Sorprende con botargas que hacen tu evento inolvidable
+        </h1>
+
+        <h2 class="reveal hero-subtitle">
+            Entregas sorpresa con botarga que llenan de alegría tu evento
+        </h2>
+
+        <a href="https://wa.me/525951080493" 
+           class="btn-whatsapp reveal hero-btn" 
+           target="_blank">
             Cotiza ahora por WhatsApp
         </a>
 
-        <ul class="beneficios">
+        <ul class="beneficios reveal hero-list">
             <li>✔ Más de 150 eventos realizados</li>
             <li>✔ Servicio puntual garantizado</li>
         </ul>
+
     </div>
 </section>
 
@@ -308,7 +317,7 @@
 
         <div class="footer-items">
 
-            <a href="https://www.google.com/maps/search/México" target="_blank" class="footer-item">
+            <a href="https://maps.app.goo.gl/V7morTTU5Fa9MqMM8?g_st=ac" target="_blank" class="footer-item">
                 <i class="fa-solid fa-location-dot"></i>
                 <span>México</span>
             </a>
@@ -316,6 +325,11 @@
             <a href="https://wa.me/525951080493" target="_blank" class="footer-item">
                 <i class="fa-brands fa-whatsapp"></i>
                 <span>+52 59 5108 0493</span>
+            </a>
+
+            <a href="mailto:mundomagicocobra@gmail.com" class="footer-item">
+                <i class="fa-solid fa-envelope"></i>
+                <span>mundomagicocobra@gmail.com</span>
             </a>
 
             <a href="https://instagram.com/mundomagicocobra12" target="_blank" class="footer-item">
@@ -471,5 +485,11 @@ document.getElementById("modal").addEventListener("click", function (e) {
 
     <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 
+    <script>
+    window.addEventListener("load", () => {
+        document.querySelectorAll(".reveal")
+            .forEach(el => el.classList.add("active"));
+    });
+    </script>
 </body>
 </html>
