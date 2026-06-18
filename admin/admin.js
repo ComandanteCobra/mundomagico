@@ -1,4 +1,4 @@
-import { db, storage } from "../js/firebase.js";
+import { db } from "../js/firebase.js";
 
 import {
 collection,
@@ -8,15 +8,11 @@ deleteDoc,
 doc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-import {
-ref,
-uploadBytes,
-getDownloadURL
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
+
 
 
 // =======================
-// 🎭 PERSONAJES
+//  PERSONAJES
 // =======================
 
 // SUBIR PERSONAJE
@@ -33,29 +29,39 @@ if(!nombre || !imagenFile){
     return;
 }
 
-// validar imagen
 if(!imagenFile.type.startsWith("image/")){
     alert("Debe ser una imagen");
     return;
 }
 
-// nombre único
-const nombreUnico = Date.now() + "_" + imagenFile.name;
+/* CLOUDINARY */
 
-const storageRef = ref(storage, "personajes/" + nombreUnico);
+const formData = new FormData();
 
-await uploadBytes(storageRef, imagenFile);
+formData.append("file", imagenFile);
+formData.append("upload_preset", "personajes");
 
-const url = await getDownloadURL(storageRef);
+const respuesta = await fetch(
+    "https://api.cloudinary.com/v1_1/ddx8vpntj/image/upload",
+    {
+        method: "POST",
+        body: formData
+    }
+);
 
-// guardar en firestore
+const resultado = await respuesta.json();
+
+if(!resultado.secure_url){
+    console.log(resultado);
+    throw new Error("Cloudinary no devolvió URL");
+}
+
 await addDoc(collection(db,"personajes"),{
     nombre: nombre,
-    imagen: url,
+    imagen: resultado.secure_url,
     createdAt: new Date()
 });
 
-// limpiar
 fileInput.value = "";
 document.getElementById("nombre").value = "";
 
@@ -64,8 +70,11 @@ alert("Personaje agregado");
 cargarPersonajes();
 
 }catch(error){
+
 console.error(error);
+
 alert("Error al subir personaje");
+
 }
 
 }
@@ -119,7 +128,7 @@ alert("Error al eliminar");
 
 
 // =======================
-// 🖼️ GALERÍA
+//  GALERÍA
 // =======================
 
 // SUBIR GALERÍA
@@ -136,7 +145,6 @@ if(!file){
     return;
 }
 
-// validar tipo
 if(tipo === "imagen" && !file.type.startsWith("image/")){
     alert("Debe ser una imagen");
     return;
@@ -147,24 +155,35 @@ if(tipo === "video" && !file.type.startsWith("video/")){
     return;
 }
 
-// nombre único
-const nombreUnico = Date.now() + "_" + file.name;
-const ruta = "galeria/" + nombreUnico;
+const formData = new FormData();
 
-const storageRef = ref(storage, ruta);
+formData.append("file", file);
+formData.append("upload_preset", "personajes");
 
-await uploadBytes(storageRef, file);
+/* SI ES VIDEO */
+const endpoint =
+tipo === "video"
+? "https://api.cloudinary.com/v1_1/ddx8vpntj/video/upload"
+: "https://api.cloudinary.com/v1_1/ddx8vpntj/image/upload";
 
-const url = await getDownloadURL(storageRef);
+const respuesta = await fetch(endpoint,{
+    method:"POST",
+    body:formData
+});
 
-// guardar
+const resultado = await respuesta.json();
+
+if(!resultado.secure_url){
+    console.log(resultado);
+    throw new Error("Cloudinary no devolvió URL");
+}
+
 await addDoc(collection(db,"galeria"),{
     tipo: tipo,
-    url: url,
+    url: resultado.secure_url,
     createdAt: new Date()
 });
 
-// limpiar
 fileInput.value = "";
 
 alert("Agregado a galería");
@@ -172,8 +191,11 @@ alert("Agregado a galería");
 cargarGaleria();
 
 }catch(error){
+
 console.error(error);
+
 alert("Error al subir archivo");
+
 }
 
 }
