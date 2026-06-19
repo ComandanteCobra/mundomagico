@@ -103,12 +103,18 @@ body {
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* cambiado */
-    text-align: left; /* cambiado */
+    justify-content: flex-start;
+    text-align: left;
     padding: 120px 20px;
     color: white;
+    overflow: hidden;
 
-    background: url("../img/fondo.jpg") center center / cover no-repeat;
+    background-image: url("../img/fondo.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    transition: background-image 1s ease-in-out;
 }
 
 /* Overlay oscuro suave para mejor contraste */
